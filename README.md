@@ -1,78 +1,61 @@
-# Customer Segmentation dengan K-Means Clustering
+# 📊 K-Means Customer Segmentation Dashboard
 
-Analisis segmentasi pelanggan menggunakan metode RFM (Recency, Frequency, Monetary) dan algoritma K-Means Clustering pada dataset Online Retail.
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg)](https://customer-behavior-analytics-hyfhi.streamlit.app)
+[![Python](https://img.shields.io/badge/Python-3.12+-blue.svg?logo=python&logoColor=white)](https://python.org)
+[![Machine Learning](https://img.shields.io/badge/Machine_Learning-K_Means-FF6F00?logo=scikitlearn&logoColor=white)](https://scikit-learn.org)
 
-## Dataset
+Aplikasi Web *Enterprise-grade* yang menyulap pemrosesan data Machine Learning kaku menjadi sebuah **Dashboard Interaktif**. Sistem ini menggunakan algoritma **K-Means Clustering** untuk memecah metrik perilaku konsumen (*Recency, Frequency, Monetary*) ke dalam tiga segmen bisnis utama.
 
-Dataset: [Online Retail Dataset](https://archive.ics.uci.edu/ml/datasets/Online+Retail) dari UCI Machine Learning Repository
+---
 
-**Deskripsi:**
-- Total records: 541,909 transaksi
-- Periode: 01/12/2010 - 09/12/2011
-- Fitur: InvoiceNo, StockCode, Description, Quantity, InvoiceDate, UnitPrice, CustomerID, Country
+> 🌐 **LIVE DEMO AVAILABLE**
+>
+> 🚀 **[KLIK DI SINI UNTUK MENCOBA DASHBOARD (STREAMLIT CLOUD)](https://customer-behavior-analytics-hyfhi.streamlit.app)** 🚀
+> 
+> *(Silakan unggah dataset ritel Anda dan cobalah berinteraksi dengan visualisasi 3D clustering secara real-time!)*
 
-## Fitur Utama
+---
 
-- **Data Preprocessing**: Cleaning data (missing values, duplicates, negative values)
-- **RFM Analysis**: Analisis Recency, Frequency, dan Monetary pelanggan
-- **Elbow Method**: Menentukan jumlah cluster optimal
-- **Silhouette Analysis**: Evaluasi kualitas clustering
-- **K-Means Clustering**: Segmentasi pelanggan menjadi 3 cluster
-- **Visualisasi**: 2D dan 3D clustering visualization
+## ✨ Pembaruan Sistem (Enterprise Upgrade)
 
-## Requirements
+- **Anti-Hardcode File Upload**: Menggantikan *absolute path* yang rawan *error* dengan fitur *File Uploader* Streamlit yang dinamis dan aman.
+- **Visualisasi Interaktif 3D**: Menggantikan output `.png` statis dengan Plotly 3D *Scatter Chart*. Pengguna dapat memutar, melakukan *zoom*, dan menyeleksi *cluster* secara *real-time* di *browser*.
+- **Desain UI Premium**: Navigasi bersih dengan tema *Clean & White*, *Custom CSS*, efek *hover* pada kartu metrik, dan tipografi bergradasi elegan.
+- **Kinerja Cepat**: Dioptimalkan dengan modul *caching* (`@st.cache_data` & `@st.cache_resource`) sehingga file berukuran puluhan megabyte dapat diproses tanpa memuat ulang model dari awal.
 
-```
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
-openpyxl
-```
+## 🛠️ Arsitektur Teknologi
 
-Install dependencies:
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn openpyxl
-```
+- **Frontend**: Streamlit, Custom HTML/CSS
+- **Visualisasi**: Plotly Express & Graph Objects
+- **Machine Learning**: Scikit-Learn (K-Means, MinMaxScaler)
+- **Pemrosesan Data**: Pandas, Numpy, Datetime
 
-## Output
+## 🚀 Cara Eksekusi Lokal
 
-**File Visualisasi:**
-- `eda_analysis.png` - Exploratory Data Analysis
-- `rfm_distributions.png` - Distribusi RFM
-- `elbow_method.png` - Elbow Method untuk optimal K
-- `silhouette_scores.png` - Silhouette Score analysis
-- `kmeans_clustering.png` - 2D dan 3D clustering visualization
-- `silhouette_analysis.png` - Detailed silhouette plot
+1. **Clone Repositori**
+   ```bash
+   git clone https://github.com/HyLuthfi/customer-behavior-analytics.git
+   cd customer-behavior-analytics
+   ```
 
-**File Data:**
-- `rfm_clusters.csv` - Data RFM dengan label cluster
-- `clustering_summary.csv` - Summary evaluasi clustering
+2. **Instalasi Dependensi**
+   Pastikan Anda menginstal modul yang tepat tanpa spesifikasi versi agar terhindar dari *conflict deployment*.
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Hasil Analisis
+3. **Menjalankan Dashboard**
+   ```bash
+   streamlit run main.py
+   ```
+   Setelah server menyala, unggah dataset `Online Retail.xlsx` Anda ke dalam tombol *upload* yang tersedia di layar.
 
-Optimal K = **3 cluster** berdasarkan:
-- Elbow Method
-- Silhouette Score Analysis
+## 📈 Metodologi
 
-**Karakteristik Cluster:**
-- Cluster 0: High-Value Active Customers
-- Cluster 1: Low-Value Inactive Customers  
-- Cluster 2: Medium-Value Customers
+- **Preprocessing**: Menghilangkan `CustomerID` kosong, duplikasi data, dan anomali nilai negatif pada `Quantity`/`UnitPrice`.
+- **RFM Extraction**: Menghitung seberapa baru (*Recency*), seberapa sering (*Frequency*), dan seberapa besar (*Monetary*) nilai transaksional setiap konsumen.
+- **Clustering**: Membagi hasil normalisasi metrik ke dalam **3 Cluster Optimal**, yang secara logis dipetakan ke dalam Segmen *High-Value*, *Medium-Value*, dan *Low-Value*.
 
-## Metrik Evaluasi
-
-- **Silhouette Score**: Mengukur seberapa baik setiap data point cocok dengan clusternya
-- **Davies-Bouldin Index**: Mengukur average similarity antara clusters
-- **WCSS**: Within-Cluster Sum of Squares untuk Elbow Method
-
-## Author
-
-Luthfi Muthathohirin
-
-## Referensi
-
-- UCI Machine Learning Repository
-- Scikit-learn Documentation
-- RFM Analysis Methodology
+---
+*Proyek ini telah direkonstruksi dari bentuk prosedural standar menuju arsitektur web modern agar memenuhi standar portofolio industri.*
